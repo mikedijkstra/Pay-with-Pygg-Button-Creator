@@ -1,0 +1,311 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!-- the "no-js" class is for Modernizr. -->
+<head id="micdijkstra-com" data-template-set="html5-reset">
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Pay with Pygg Button Creator</title>
+	<meta name="title" content="Counter - Count Words - Count Characters - Count Letters">
+	<meta name="description" content="Counter is an easy way to count the letters and count the words in your text. The optimal line length for readability is 60 - 75 characters or approximately 12 words.">
+	<meta name="google-site-verification" content="">
+	<meta name="author" content="Michael Dijkstra">
+	<meta name="DC.title" content="char counter.">
+	<meta name="DC.subject" content="A simple javascript counter to set an optimal line length during document development.">
+	<meta name="DC.creator" content="Michael Dijkstra">
+	<style>
+	  /*
+    	HTML5 Reset :: style.css
+    	----------------------------------------------------------
+    	We have learned much from/been inspired by/taken code where offered from:
+
+    	Eric Meyer					:: http://ericmeyer.com
+    	HTML5 Doctor				:: http://html5doctor.com
+    	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+
+    -------------------------------------------------------------------------------*/
+
+    /* Let's default this puppy out
+    -------------------------------------------------------------------------------*/
+
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video {
+    	margin: 0;
+    	padding: 0;
+    	border: 0;
+    	outline: 0;
+    	font-size: 100%;
+    	vertical-align: baseline;
+    	background: transparent;
+    }									
+
+    article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+
+    /* Responsive images and other embedded objects
+       Note: keeping IMG here will cause problems if you're using foreground images as sprites, like, say for Google Maps custom placemarkers. 
+       There has been a report of problems with standard Google maps as well, but we haven't been able to duplicate or diagnose the issue. */
+    img,
+    object,
+    embed {max-width: 100%;}
+
+    /* force a vertical scrollbar to prevent a jumpy page */
+    html {overflow-y: scroll;}
+
+    /* we use a lot of ULs that aren't bulleted. 
+    	don't forget to restore the bullets within content. */
+    ul {list-style: none;}
+
+    blockquote, q {quotes: none;}
+
+    blockquote:before, 
+    blockquote:after, 
+    q:before, 
+    q:after {content: ''; content: none;}
+
+    a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+    del {text-decoration: line-through;}
+
+    abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+    /* tables still need cellspacing="0" in the markup */
+    table {border-collapse: collapse; border-spacing: 0;}
+    th {font-weight: bold; vertical-align: bottom;}
+    td {font-weight: normal; vertical-align: top;}
+
+    hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+    input, select {vertical-align: middle;}
+
+    pre {
+    	white-space: pre; /* CSS2 */
+    	white-space: pre-wrap; /* CSS 2.1 */
+    	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+    	word-wrap: break-word; /* IE */
+    }
+
+    input[type="radio"] {vertical-align: text-bottom;}
+    input[type="checkbox"] {vertical-align: bottom; *vertical-align: baseline;}
+    .ie6 input {vertical-align: text-bottom;}
+
+    select, input, textarea {font: 99% sans-serif;}
+
+    table {font-size: inherit; font: 100%;}
+
+    /* Accessible focus treatment
+    	people.opera.com/patrickl/experiments/keyboard/test */
+    a:hover, a:active {outline: none;}
+
+    small {font-size: 85%;}
+
+    strong, th {font-weight: bold;}
+
+    td, td img {vertical-align: top;} 
+
+    /* Make sure sup and sub don't screw with your line-heights
+    	gist.github.com/413930 */
+    sub, sup {font-size: 75%; line-height: 0; position: relative;}
+    sup {top: -0.5em;}
+    sub {bottom: -0.25em;}
+
+    /* standardize any monospaced elements */
+    pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+    /* hand cursor on clickable elements */
+    .clickable,
+    label, 
+    input[type=button], 
+    input[type=submit], 
+    button {cursor: pointer;}
+
+    /* Webkit browsers add a 2px margin outside the chrome of form elements */
+    button, input, select, textarea {margin: 0;}
+
+    /* make buttons play nice in IE */
+    button {width: auto; overflow: visible;}
+
+    /* scale images in IE7 more attractively */
+    .ie7 img {-ms-interpolation-mode: bicubic;}
+
+    /* prevent BG image flicker upon hover */
+    .ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+
+    /* let's clear some floats */
+    .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+    .clearfix:after { clear: both; }  
+    .clearfix { zoom: 1; }  
+
+
+
+    /* Ok, this is where the fun starts.
+    -------------------------------------------------------------------------------*/
+
+    /* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
+    body {font: 10px Helmet, Freesans, sans-serif;}
+
+    /* using local fonts? make sure to read up on Paul Irish's 
+    	Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
+
+    /* we like off-black for text */
+    body, select, input, textarea {color: #333;}
+
+    a {color: #FFF5E1; text-decoration: none;}
+    a:hover {color: #69f;}
+
+    /* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
+    ::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
+    ::selection {background: #fcd700; color: #fff; text-shadow: none;} 
+
+    /*	j.mp/webkit-tap-highlight-color */
+    a:link {-webkit-tap-highlight-color: #fcd700;} 
+
+    ins {background-color: #fcd700; color: #000; text-decoration: none;}
+    mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+
+    body {
+      background: #1E69A5;
+      color: #FFF5E1;  
+      text-align: center
+    }
+
+    header {
+      text-align: center;
+      margin-top: 18px;
+      width: 100%;
+    }
+
+    article {
+      display: block;
+      margin: 18px auto;
+      width: 600px;
+    }
+		
+		section.form {
+			display: block;
+			margin: 0 auto;
+			width: 450px;
+		}
+
+    footer {
+      margin-top: 72px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 72px;  
+      font-style: normal;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 72px;
+      margin-bottom: 36px;
+    }
+
+    h1 a {
+      color: #FFF5E1;
+      text-decoration: none
+    }
+
+		h1+p {
+			margin-bottom: 36px;
+		}
+
+    p {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      vertical-align: baseline;
+    }
+
+		p#link {
+			font-size: 10px;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			float: left;
+			line-height: 18px;
+			padding: 9px;
+			text-align: right;
+			width: 120px;			
+		}
+
+    input {
+      border: 1px dashed #FFF5E1;
+      background: #1A598B;
+      color: #FFF5E1;
+			display: block;
+			float: left;
+      font-size: 14px;      
+      line-height: 18px;
+      height: 18px;
+      margin-bottom: 9px;
+      padding: 9px;
+      width: 180px;
+    }
+	</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+	<header>
+		<h1>Pay with Pygg<br>button creator.</h1>
+		<p>Complete the form below to create a &lsquo;Pay with Pygg&rsquo; button to use on your site!</p>
+	</header>
+	<article>	
+		<section class="form">
+			<p>
+				<label for="username_field">Username @</label> <input type="text" id="username_field" placeholder="eg) Twitter Name" />
+			</p>
+			<p>
+				<label for="amount_field">Amount $</label> <input type="text" id="amount_field" placeholder="eg) 10" />
+			</p>
+			<p>
+				<label for="message_field">Message</label> <input type="text" id="message_field" placeholder="eg) I love your blog!" />
+			</p>		
+			<p>
+			  copy and paste the code onto below onto your site:
+			</p>
+		</section>
+		<p id="link">
+			&lt;a href="<span id="message">http://twitter.com/intent/tweet?+@pygg+pay+@+$</span>"&gt;&lt;img src="http://pygg.co/blog/pay_with_pygg.png" alt="Pay with Pygg"&gt;&lt;/a&gt;
+		</p>
+		<p>To get a link like the one below!</p>
+		<p><a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><img src="http://pygg.co/blog/pay_with_pygg.png" alt="Pay with Pygg"></a></p>
+		<p id="test"></p>
+	</article>
+	<footer>
+	</footer>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+  // Functions
+  jQuery.fn.makeLink = function() {
+    this.keyup(function() {
+			var username = $('#username_field').val();
+			var amount = $('#amount_field').val();
+      var message = $('#message_field').val();
+			var messageText = message.replace(/\s/g,"+")
+			var link = "http://twitter.com/intent/tweet?text=" + messageText + "+@pygg+pay+@" + username + '+$' + amount;
+			$('#message').text(link);
+			$('#linkOutput').attr("href", link);
+			$('#test').text("(Test your code with the link above)")
+      return false;
+    })
+    return this;
+  };
+
+  // remap jQuery to $
+  (function($){ 
+
+    $('#username_field, #amount_field, #message_field').makeLink();
+
+  })(window.jQuery);
+</script>
+</body>
+</html>
