@@ -166,8 +166,8 @@
     mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
 
     body {
-      background: #1E69A5;
-      color: #FFF5E1;  
+      background: #ffffff;
+      color: #333;  
       text-align: center
     }
 
@@ -224,6 +224,8 @@
 			font-size: 10px;
 		}
 
+		p.example {
+		}
 		label {
 			display: block;
 			font-weight: bold;
@@ -235,9 +237,9 @@
 		}
 
     input {
-      border: 1px dashed #FFF5E1;
-      background: #1A598B;
-      color: #FFF5E1;
+      border: 1px dashed #333333;
+      background: #eee;
+      color: #333333;
 			display: block;
 			float: left;
       font-size: 14px;      
@@ -247,6 +249,11 @@
       padding: 9px;
       width: 180px;
     }
+		select {
+			width: 180px;
+			float: left;
+			margin-top: 9px;
+		}
 	</style>
 </head>
 
@@ -260,10 +267,30 @@
 	<article>	
 		<section class="form">
 			<p>
+				<label for="type_field">Button</label>
+				<select id="type_field">
+					<option value="">Standard</option>
+					<option value="pay_">Pay</option>
+					<option value="donate_">Donate</option>
+				</select>										
+			<p>
 				<label for="username_field">Username @</label> <input type="text" id="username_field" placeholder="Your Twitter username" />
 			</p>
 			<p>
-				<label for="amount_field">Amount $</label> <input type="text" id="amount_field" placeholder="eg. 10" />
+				<label for="amount_field">Amount $</label>
+				<select id="amount_field">
+					<option value="1">$1.00</option>
+					<option value="2">$2.00</option>
+					<option value="5">$5.00</option>
+					<option value="10">$10.00</option>
+					<option value="15">$15.00</option>
+					<option value="20">$20.00</option>
+					<option value="30">$30.00</option>
+					<option value="40">$40.00</option>
+					<option value="50">$50.00</option>
+					<option value="75">$75.00</option>
+					<option value="100">$100.00</option>
+				</select>
 			</p>
 			<p>
 				<label for="message_field">Message</label> <input type="text" id="message_field" placeholder="eg. I support your blog!" />
@@ -273,10 +300,10 @@
 			</p>
 		</section>
 		<p id="link">
-			&lt;a href="<span id="message">http://twitter.com/intent/tweet?+@pygg+pay+@+$</span>"&gt;&lt;img src="http://pygg.co/blog/pay_with_pygg.png" alt="Pay with Pygg"&gt;&lt;/a&gt;
+			&lt;a href="<span id="tweet_message">http://twitter.com/intent/tweet?+@pygg+pay+@+$</span>"&gt;<br><span id="tweet_image">&lt;img src="http://pygg.co/blog/pay_with_pygg.png" alt="Pay with Pygg"&gt;&lt;/a&gt;
 		</p>
 		<p>To get a link like the one below!</p>
-		<p><a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><img src="http://pygg.co/blog/pay_with_pygg.png" alt="Pay with Pygg"></a></p>
+		<p class="example"><a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><span id="image"><img src="http://pygg.co/blog/pygg_buttons/	10.png" alt="Pay with Pygg"></span></a></p>
 		<p id="test"></p>
 	</article>
 	<footer>
@@ -286,15 +313,19 @@
 <script>
   // Functions
   jQuery.fn.makeLink = function() {
-    this.keyup(function() {
+    this.change(function() {
+			var type = $('#type_field').val();
 			var username = $('#username_field').val();
 			var amount = $('#amount_field').val();
       var message = $('#message_field').val();
 			var messageText = message.replace(/\s/g,"+")
+			var image = "<img src='http://pygg.co/blog/pygg_buttons/" + type + amount + ".png' alt='Pay with Pygg'>";
 			var link = "http://twitter.com/intent/tweet?text=" + messageText + "+@pygg+pay+@" + username + '+$' + amount;
-			$('#message').text(link);
+			$('#tweet_message').text(link);
+			$('#tweet_image').text(image);
 			$('#linkOutput').attr("href", link);
 			$('#test').text("(Test your code with the link above)")
+			$('#image').html(image)
       return false;
     })
     return this;
@@ -303,7 +334,7 @@
   // remap jQuery to $
   (function($){ 
 
-    $('#username_field, #amount_field, #message_field').makeLink();
+    $('#username_field, #amount_field, #message_field, #type_field').makeLink();
 
   })(window.jQuery);
 </script>
