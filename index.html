@@ -236,7 +236,7 @@
 			width: 120px;			
 		}
 
-    input {
+    input, textarea {
       border: 1px dashed #333333;
       background: #eee;
       color: #333333;
@@ -249,6 +249,12 @@
       padding: 9px;
       width: 180px;
     }
+		textarea {
+			float: none;
+			height: 72px;
+			margin: 0 auto;
+			width: 350px;
+		}
 		select {
 			width: 180px;
 			float: left;
@@ -299,11 +305,15 @@
 			  copy and paste the code below onto your site:
 			</p>
 		</section>
+		<textarea id="link">
+		</textarea>
 		<p id="link">
-			&lt;a href="<span id="tweet_message">http://twitter.com/intent/tweet?+@pygg+pay+@+$</span>"&gt;<br><span id="tweet_image">&lt;img src="http://pygg.co/blog/pay_with_pygg.png" alt="Pay with Pygg"&gt;&lt;/a&gt;
+			
 		</p>
 		<p>To get a link like the one below!</p>
-		<p class="example"><a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><span id="image"><img src="http://pygg.co/blog/pygg_buttons/	10.png" alt="Pay with Pygg"></span></a></p>
+		<p class="example">
+			<a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><span id="image"><img src="http://pygg.co/blog/pygg_buttons/	10.png" alt="Pay with Pygg"></span></a>
+		</p>
 		<p id="test"></p>
 	</article>
 	<footer>
@@ -323,6 +333,7 @@
 			var link = "http://twitter.com/intent/tweet?text=" + messageText + "+@pygg+pay+@" + username + '+$' + amount;
 			$('#tweet_message').text(link);
 			$('#tweet_image').text(image);
+			$('#link').val("<a href='" + link + "'>" + image + "</a>");
 			$('#linkOutput').attr("href", link);
 			$('#test').text("(Test your code with the link above)")
 			$('#image').html(image)
