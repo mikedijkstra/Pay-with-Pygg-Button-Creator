@@ -336,9 +336,9 @@
 			<p>
 				<label for="type_field">Button</label>
 				<select id="type_field">
-					<option value="">Standard</option>
-					<option value="pay_">Pay</option>
-					<option value="donate_">Donate</option>
+					<option value="" title="Pay with Pygg">Standard</option>
+					<option value="pay_" title="Pay with Pygg">Pay</option>
+					<option value="donate_" title="Donate with Pygg">Donate</option>
 				</select>										
 			<p>
 				<label for="username_field">Username @</label> <input type="text" id="username_field" placeholder="Your Twitter Username" />
@@ -371,7 +371,7 @@
 		</textarea>
 		<p>To get a link like the one below!</p>
 		<p class="example">
-			<a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><span id="image"><img src="http://pygg.co/blog/pygg_buttons/	10.png" alt="Pay with Pygg"></span></a>
+			<a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><span id="image"><img src="http://pygg.co/blog/pygg_buttons/10.png" alt="Pay with Pygg"></span></a>
 		</p>
 		<p id="test"></p>
 	</article>
@@ -385,11 +385,12 @@
   jQuery.fn.makeLink = function() {
     this.change(function() {
 			var type = $('#type_field').val();
+			var alt = $('#type_field').find("option:selected").attr("title");
 			var username = $('#username_field').val();
 			var amount = $('#amount_field').val();
       var message = $('#message_field').val();
 			var messageText = message.replace(/\s/g,"+")
-			var image = "<img src='http://pygg.co/blog/pygg_buttons/" + type + amount + ".png' alt='Pay with Pygg'>";
+			var image = "<img src='http://pygg.co/blog/pygg_buttons/" + type + amount + ".png' alt='" + alt + "'>";
 			var link = "http://twitter.com/intent/tweet?text=" + messageText + "+@pygg+pay+@" + username + '+$' + amount;
 			$('#tweet_message').text(link);
 			$('#tweet_image').text(image);
