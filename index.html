@@ -152,7 +152,7 @@
     /* we like off-black for text */
     body, select, input, textarea {color: #333;}
 
-    a {color: #FFF5E1; text-decoration: none;}
+    a {color: #3089BE; text-decoration: none;}
     a:hover {color: #69f;}
 
     /* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
@@ -160,13 +160,13 @@
     ::selection {background: #fcd700; color: #fff; text-shadow: none;} 
 
     /*	j.mp/webkit-tap-highlight-color */
-    a:link {-webkit-tap-highlight-color: #fcd700;} 
+    a:link {-webkit-tap-highlight-color: #3089BE;} 
 
     ins {background-color: #fcd700; color: #000; text-decoration: none;}
     mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
 
     body {
-      background: #ffffff;
+      background: url(http://pygg.co/resources/css/img/homeGrad.png) -0 -108px #ffffff;
       color: #333;  
       text-align: center
     }
@@ -181,34 +181,41 @@
       display: block;
       margin: 18px auto;
       width: 600px;
+			border-bottom: 1px solid rgb(233,233,233);
+			margin-bottom: 20px;
     }
 		
 		section.form {
 			display: block;
 			margin: 0 auto;
-			width: 318px;
+			width: 350px;
+			margin-bottom: 36px;
 		}
 
     footer {
-      margin-top: 72px;
       text-align: center;
+			padding-bottom: 36px;
     }
 
     h1 {
-      font-size: 72px;  
+			color: rgb(86,166,203);
+      font-size: 36px;  
       font-style: normal;
       font-weight: 900;
       letter-spacing: -0.05em;
-      line-height: 72px;
-      margin-bottom: 36px;
+      line-height: 36px;
+      margin-bottom: 18px;
     }
 
     h1 a {
-      color: #FFF5E1;
+      color: #3089BE;
       text-decoration: none
     }
 
 		h1+p {
+			color: #ffffff;
+      font-size: 18px;
+			line-height: 36px;
 			margin-bottom: 36px;
 		}
 
@@ -232,7 +239,7 @@
 			float: left;
 			line-height: 18px;
 			padding: 9px;
-			text-align: right;
+			text-align: left;
 			width: 100px;			
 		}
 
@@ -254,11 +261,18 @@
 			height: 72px;
 			margin: 0 auto;
 			width: 350px;
+			margin-bottom: 36px;
 		}
 		select {
 			width: 180px;
 			float: left;
 			margin-top: 9px;
+		}
+		span.instruction {
+			display: block;
+			float: left;
+			font-size: 12px;
+			padding-left: 120px;
 		}
 	</style>
 </head>
@@ -267,8 +281,13 @@
 
 <div class="wrapper">
 	<header>
-		<h1>Pay with Pygg<br>button creator.</h1>
-		<p>Complete the form below to create a &lsquo;Pay with Pygg&rsquo; button to use on your site!</p>
+		<h1>
+			<a href="http://pygg.co">
+				<img src="http://pygg.co/resources/css/img/logo.png" alt="Pygg" style="border: 0; width: 306px; height: 110px;">
+			</a>
+		</h1>
+		<p>Add social payments to your business by adding a &lsquo;Pay with Pygg&rsquo; button to use on your site!</p>
+		<p>Complete the form below for a customised button that will create a Pygg pay tweet.</p>
 	</header>
 	<article>	
 		<section class="form">
@@ -280,7 +299,8 @@
 					<option value="donate_">Donate</option>
 				</select>										
 			<p>
-				<label for="username_field">Username @</label> <input type="text" id="username_field" placeholder="Your Twitter username" />
+				<label for="username_field">Username @</label> <input type="text" id="username_field" placeholder="" />
+				<br><span class="instruction">The linked Twitter account to pay</span>
 			</p>
 			<p>
 				<label for="amount_field">Amount $</label>
@@ -300,16 +320,14 @@
 			</p>
 			<p>
 				<label for="message_field">Message</label> <input type="text" id="message_field" placeholder="eg. I support your blog!" />
+				<br><span class="instruction">Appears at front of tweet</span>
 			</p>		
-			<p>
-			  copy and paste the code below onto your site:
-			</p>
 		</section>
+		<p>
+		  then copy and paste the code below onto your site:
+		</p>
 		<textarea id="link">
 		</textarea>
-		<p id="link">
-			
-		</p>
 		<p>To get a link like the one below!</p>
 		<p class="example">
 			<a href="http://twitter.com/intent/tweet?text=Thanks+for+the+button!+@pygg+pay+@micdijkstra+$10" id="linkOutput"><span id="image"><img src="http://pygg.co/blog/pygg_buttons/	10.png" alt="Pay with Pygg"></span></a>
@@ -317,6 +335,7 @@
 		<p id="test"></p>
 	</article>
 	<footer>
+		<a href="http://pygg.co">What is Pygg?</a>
 	</footer>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
