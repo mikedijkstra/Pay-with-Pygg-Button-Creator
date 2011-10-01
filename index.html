@@ -166,7 +166,7 @@
     mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
 
     body {
-      background: url(http://pygg.co/resources/css/img/homeGrad.png) -0 -108px #ffffff;
+      background: url(http://pygg.co/resources/css/img/homeGrad.png) -0 -90px #ffffff;
       color: #333;  
       text-align: center
     }
@@ -176,6 +176,38 @@
       margin-top: 18px;
       width: 100%;
     }
+		
+		nav {
+			display: block;
+			margin: 0 auto;
+			overflow: hidden;
+			margin-right: 20px;
+		}
+
+		nav li {
+			display: block;
+			float: right;
+			margin: 0 2px;
+			width: auto;
+		}
+		
+		nav li a {
+			background: rgb(69,142,187);
+			border-radius: 10px;
+			color:#fff;
+			cursor: pointer;
+			display: block;
+			font-size: 14px;
+			line-height: 1.5em;
+			padding: 5px 10px;
+			text-decoration:none;
+			text-shadow:-1px -1px 0 rgba(12, 57, 75, 0.5);
+		}
+		
+		nav li a:hover {
+			background: #17384c;
+			color: #fff;
+		}
 
     article {
       display: block;
@@ -281,12 +313,22 @@
 
 <div class="wrapper">
 	<header>
+		<nav>
+			<ul>
+				<li>
+					<a href="http://pygg.co/how-it-works">How it works</a>
+				</li>
+				<li>
+					<a href="http://pygg.co/">Home</a>
+				</li>
+			</ul>
+		</nav>
 		<h1>
 			<a href="http://pygg.co">
 				<img src="http://pygg.co/resources/css/img/logo.png" alt="Pygg" style="border: 0; width: 306px; height: 110px;">
 			</a>
 		</h1>
-		<p>Add social payments to your business by adding a &lsquo;Pay with Pygg&rsquo; button to use on your site!</p>
+		<p>Add social payments to your business by adding a &lsquo;Pay with Pygg&rsquo; button to your site!</p>
 		<p>Complete the form below for a customised button that will create a Pygg pay tweet.</p>
 	</header>
 	<article>	
@@ -299,8 +341,7 @@
 					<option value="donate_">Donate</option>
 				</select>										
 			<p>
-				<label for="username_field">Username @</label> <input type="text" id="username_field" placeholder="" />
-				<br><span class="instruction">The linked Twitter account to pay</span>
+				<label for="username_field">Username @</label> <input type="text" id="username_field" placeholder="Your Twitter Username" />
 			</p>
 			<p>
 				<label for="amount_field">Amount $</label>
@@ -320,7 +361,7 @@
 			</p>
 			<p>
 				<label for="message_field">Message</label> <input type="text" id="message_field" placeholder="eg. I support your blog!" />
-				<br><span class="instruction">Appears at front of tweet</span>
+				<br><span class="instruction">Will appear at front of tweet</span>
 			</p>		
 		</section>
 		<p>
